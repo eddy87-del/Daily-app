@@ -1,0 +1,18 @@
+{
+  "name": "daily-milk-app",
+  "version": "1.0.0",
+  "description": "A simple web application to track daily milk consumption",
+  "main": "index.html",
+  "scripts": {
+    "start": "open index.html"
+  },
+  "keywords": [
+    "milk",
+    "tracker",
+    "daily",
+    "health",
+    "consumption"
+  ],
+  "author": "eddy87-del",
+  "license": "MIT"
+}
