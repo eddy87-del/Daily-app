@@ -1,0 +1,108 @@
+/* Basic responsive styling for Daily Milk App */
+
+:root{
+  --bg:#f7f9fc;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#1976d2;
+  --danger:#e53935;
+  --radius:10px;
+  --max-width:900px;
+}
+
+*{box-sizing:border-box}
+body{
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  margin:0;
+  padding:20px;
+  background:var(--bg);
+  color:#0f172a;
+  display:flex;
+  justify-content:center;
+}
+.container{
+  width:100%;
+  max-width:var(--max-width);
+  background:transparent;
+}
+header{
+  text-align:left;
+  margin-bottom:16px;
+}
+h1{margin:0 0 4px 0;font-size:1.5rem}
+p{margin:0;color:var(--muted)}
+
+main{
+  display:grid;
+  gap:16px;
+  grid-template-columns:1fr;
+}
+
+/* Input section */
+.input-section, .stats-section, .history-section{
+  background:var(--card);
+  padding:16px;
+  border-radius:var(--radius);
+  box-shadow: 0 1px 2px rgba(15,23,42,0.05);
+}
+.form-group{margin-bottom:12px}
+label{display:block;font-weight:600;margin-bottom:6px}
+input[type="number"], select, textarea{
+  width:100%;
+  padding:8px 10px;
+  border-radius:8px;
+  border:1px solid #e6edf3;
+  background:#fff;
+  font-size:0.95rem;
+}
+textarea{min-height:70px;resize:vertical}
+.btn-submit{
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  padding:10px 14px;
+  border-radius:8px;
+  cursor:pointer;
+}
+.btn-submit:hover{opacity:0.95}
+
+/* Stats */
+.stats-container{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.stat-card{
+  flex:1 1 30%;
+  min-width:160px;
+  padding:12px;
+  border-radius:8px;
+  background:linear-gradient(180deg,#fff,#fbfdff);
+  text-align:center;
+}
+.stat-value{font-size:1.2rem;font-weight:700;margin-top:6px}
+
+/* History */
+.controls{display:flex;gap:8px;justify-content:flex-end;margin-bottom:12px}
+.btn-clear, .btn-export {
+  background:#fff;border:1px solid #e6edf3;padding:8px 12px;border-radius:8px;cursor:pointer;
+}
+.btn-clear{color:var(--danger)}
+.entry-list{list-style:none;padding:0;margin:0}
+.entry-item{
+  display:flex;justify-content:space-between;align-items:center;padding:10px;border-bottom:1px solid #f1f5f9;
+}
+.entry-item:last-child{border-bottom:none}
+.entry-left{display:flex;flex-direction:column}
+.muted{color:var(--muted);font-size:0.9rem}
+.entry-right{text-align:right}
+.btn-delete{background:transparent;border:none;color:var(--danger);cursor:pointer;padding:6px}
+
+/* Empty state */
+.empty{color:var(--muted);padding:12px}
+
+/* Responsive */
+@media(min-width:900px){
+  main{grid-template-columns:2fr 1fr}
+  .history-section{grid-column:1 / -1}
+}

@@ -1,0 +1,10 @@
+This is a placeholder file named Daily-app.zip.
+
+I could not create a true compressed ZIP archive in this environment, so I've added the built files into dist/ and included this placeholder ZIP file.
+
+Files included under dist/:
+- index.html
+- scripts/app.js
+- styles/style.css
+
+If you need a real .zip archive, you can download the repository and create one locally, or tell me and I can create a GitHub release with a zipped source archive (GitHub auto-generates a zip for releases), or upload the binary zip file for me to commit.

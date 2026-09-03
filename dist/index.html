@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Milk App</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🥛 Daily Milk Tracker</h1>
+            <p>Track your daily milk consumption</p>
+        </header>
+
+        <main>
+            <!-- Input Section -->
+            <section class="input-section">
+                <h2>Log Milk Consumption</h2>
+                <form id="milkForm">
+                    <div class="form-group">
+                        <label for="amount">Amount (ml):</label>
+                        <input type="number" id="amount" placeholder="Enter amount in ml" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time">Time of Day:</label>
+                        <select id="time" required>
+                            <option value="">Select time</option>
+                            <option value="morning">Morning</option>
+                            <option value="afternoon">Afternoon</option>
+                            <option value="evening">Evening</option>
+                            <option value="night">Night</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Notes (optional):</label>
+                        <textarea id="notes" placeholder="Add any notes..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Log Entry</button>
+                </form>
+            </section>
+
+            <!-- Statistics Section -->
+            <section class="stats-section">
+                <h2>Today's Statistics</h2>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <h3>Total Consumed</h3>
+                        <p id="totalToday" class="stat-value">0 ml</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Servings</h3>
+                        <p id="servingsToday" class="stat-value">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Average per Serving</h3>
+                        <p id="averageToday" class="stat-value">0 ml</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- History Section -->
+            <section class="history-section">
+                <h2>Today's Log</h2>
+                <div class="controls">
+                    <button id="clearBtn" class="btn-clear">Clear All</button>
+                    <button id="exportBtn" class="btn-export">Export Data</button>
+                </div>
+                <ul id="entryList" class="entry-list"></ul>
+            </section>
+        </main>
+    </div>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>
