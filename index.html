@@ -10,7 +10,18 @@
     <div class="container">
         <header>
             <h1>🥛 Daily Milk Tracker</h1>
-            <p>Track your daily milk consumption</p>
+            <p>Track your daily milk consumption with style</p>
+            
+            <!-- Theme Selector -->
+            <div class="theme-selector">
+                <button class="theme-btn active" data-theme="default" title="Default Blue">Blue</button>
+                <button class="theme-btn" data-theme="sunset" title="Warm Sunset">Sunset</button>
+                <button class="theme-btn" data-theme="forest" title="Forest Green">Forest</button>
+                <button class="theme-btn" data-theme="purple" title="Purple Dream">Purple</button>
+                <button class="theme-btn" data-theme="ocean" title="Ocean Blue">Ocean</button>
+                <button class="theme-btn" data-theme="coral" title="Coral Reef">Coral</button>
+                <button class="theme-btn" data-theme="dark" title="Dark Mode">Dark</button>
+            </div>
         </header>
 
         <main>
@@ -27,10 +38,10 @@
                         <label for="time">Time of Day:</label>
                         <select id="time" required>
                             <option value="">Select time</option>
-                            <option value="morning">Morning</option>
-                            <option value="afternoon">Afternoon</option>
-                            <option value="evening">Evening</option>
-                            <option value="night">Night</option>
+                            <option value="morning">🌅 Morning</option>
+                            <option value="afternoon">☀️ Afternoon</option>
+                            <option value="evening">🌆 Evening</option>
+                            <option value="night">🌙 Night</option>
                         </select>
                     </div>
 
@@ -62,14 +73,70 @@
                 </div>
             </section>
 
+            <!-- Goals Section -->
+            <section class="goals-section">
+                <h2>Daily Goal</h2>
+                <div class="goal-display" id="goalDisplay" style="display: none;">
+                    <h3>Today's Goal</h3>
+                    <p class="goal-value"><span id="currentIntake">0</span> / <span id="goalAmount">0</span> ml</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">0% complete</div>
+                    <div class="goal-controls">
+                        <button class="btn-edit-goal" id="editGoalBtn">✏️ Edit Goal</button>
+                    </div>
+                </div>
+
+                <div class="goal-form" id="goalForm">
+                    <div class="form-group">
+                        <label for="goalValue">Set Daily Goal (ml):</label>
+                        <input type="number" id="goalValue" placeholder="e.g., 2000" min="100">
+                    </div>
+                    <button type="button" class="btn-set-goal" id="setGoalBtn">Set Goal</button>
+                </div>
+
+                <p id="noGoalMsg" style="text-align: center; color: var(--muted);">No goal set yet. Set a daily goal to get started!</p>
+            </section>
+
+            <!-- Weekly Overview Section -->
+            <section class="weekly-section">
+                <h2>Weekly Overview</h2>
+                <div class="weekly-chart" id="weeklyChart"></div>
+                <div style="text-align: center; color: var(--muted); font-size: 0.9rem; margin-top: 16px;">
+                    Last 7 days consumption
+                </div>
+            </section>
+
             <!-- History Section -->
             <section class="history-section">
-                <h2>Today's Log</h2>
-                <div class="controls">
-                    <button id="clearBtn" class="btn-clear">Clear All</button>
-                    <button id="exportBtn" class="btn-export">Export Data</button>
+                <h2>History</h2>
+                
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="today">📅 Today</button>
+                    <button class="tab-btn" data-tab="history">📊 All Entries</button>
                 </div>
-                <ul id="entryList" class="entry-list"></ul>
+
+                <!-- Today's Log Tab -->
+                <div class="tab-content active" id="today-tab">
+                    <div class="controls">
+                        <button id="clearBtn" class="btn-clear">🗑️ Clear All</button>
+                        <button id="exportBtn" class="btn-export">📥 Export Data</button>
+                    </div>
+                    <ul id="entryList" class="entry-list"></ul>
+                </div>
+
+                <!-- All History Tab -->
+                <div class="tab-content" id="history-tab">
+                    <div class="date-filter">
+                        <input type="date" id="filterFromDate" placeholder="From date">
+                        <input type="date" id="filterToDate" placeholder="To date">
+                        <button class="btn-date-filter" id="applyFilterBtn">🔍 Filter</button>
+                        <button class="btn-date-filter" id="resetFilterBtn" style="border-color: var(--muted); color: var(--muted);">Reset</button>
+                    </div>
+                    <ul id="filteredEntryList" class="entry-list"></ul>
+                </div>
             </section>
         </main>
     </div>
